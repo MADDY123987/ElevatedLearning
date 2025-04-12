@@ -42,15 +42,43 @@ const LiveSessions = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [isVideoOff, setIsVideoOff] = useState(false);
   
-  // Fetch live sessions
-  const { data: sessions, isLoading } = useQuery({
+  // Fetch live sessions from both platform and Zoom
+  const { data: platformSessions = [], isLoading: isPlatformLoading } = useQuery({
     queryKey: ['/api/live-sessions'],
     queryFn: async () => {
       const res = await fetch('/api/live-sessions');
-      if (!res.ok) throw new Error('Failed to fetch live sessions');
+      if (!res.ok) throw new Error('Failed to fetch platform sessions');
       return res.json();
     }
   });
+  
+  // Fetch upcoming Zoom sessions
+  const { data: zoomSessions = [], isLoading: isZoomLoading } = useQuery({
+    queryKey: ['/api/zoom/upcoming-sessions'],
+    queryFn: async () => {
+      const res = await fetch('/api/zoom/upcoming-sessions');
+      if (!res.ok) throw new Error('Failed to fetch Zoom sessions');
+      return res.json();
+    }
+  });
+  
+  // Combine both session types
+  const sessions = [
+    ...platformSessions,
+    ...(zoomSessions || []).map((zoomSession: any) => ({
+      id: zoomSession.id,
+      title: zoomSession.topic,
+      description: "Join this Zoom session with our expert instructor",
+      instructorName: "Zoom Host",
+      sessionDate: zoomSession.start_time,
+      duration: zoomSession.duration,
+      meetingId: zoomSession.id,
+      isZoomSession: true,
+      joinUrl: zoomSession.join_url
+    }))
+  ];
+  
+  const isLoading = isPlatformLoading || isZoomLoading;
   
   // Join session
   const handleJoinSession = async (session: any) => {
@@ -58,15 +86,41 @@ const LiveSessions = () => {
     setIsJoining(true);
     
     try {
-      // Fetch Zoom details from backend
-      const res = await fetch(`/api/live-sessions/${session.id}`);
-      if (!res.ok) throw new Error('Failed to get session details');
+      // If it's already a Zoom session with a join URL, no need to fetch
+      if (session.isZoomSession && session.joinUrl) {
+        setIsJoining(false);
+        return;
+      }
       
-      const sessionDetails = await res.json();
-      setSelectedSession({
-        ...session,
-        joinUrl: sessionDetails.joinUrl
-      });
+      // For platform sessions, fetch join URL details
+      if (session.meetingId) {
+        // If it's a Zoom meeting ID, get join URL
+        const res = await fetch('/api/get-zoom-link', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ meetingId: session.meetingId })
+        });
+        
+        if (!res.ok) throw new Error('Failed to get Zoom link');
+        
+        const { join_url } = await res.json();
+        setSelectedSession({
+          ...session,
+          joinUrl: join_url
+        });
+      } else {
+        // Default platform sessions
+        const res = await fetch(`/api/live-sessions/${session.id}`);
+        if (!res.ok) throw new Error('Failed to get session details');
+        
+        const sessionDetails = await res.json();
+        setSelectedSession({
+          ...session,
+          joinUrl: sessionDetails.joinUrl
+        });
+      }
       
       setIsJoining(false);
     } catch (error) {
@@ -77,8 +131,14 @@ const LiveSessions = () => {
   
   // Handle joining video call
   const handleJoinVideoCall = () => {
-    // In a real app, this would redirect to Zoom or open the meeting in an iframe
-    // For this demo, we'll simulate a session interface
+    // If it's a Zoom session with a join URL, open it in a new window
+    if (selectedSession?.isZoomSession && selectedSession?.joinUrl) {
+      window.open(selectedSession.joinUrl, '_blank');
+      setSelectedSession(null);
+      return;
+    }
+    
+    // For internal platform sessions, we'll simulate a session interface
     setInSession(true);
   };
   
@@ -358,6 +418,13 @@ const LiveSessions = () => {
                       <LinkIcon className="h-4 w-4 mr-2 text-gray-500" />
                       <span>Meeting ID: {selectedSession?.meetingId}</span>
                     </div>
+                    {selectedSession?.isZoomSession && (
+                      <div className="flex items-center text-sm mt-2 pt-2 border-t border-gray-200 dark:border-gray-700">
+                        <Video className="h-4 w-4 mr-2 text-blue-500" />
+                        <span className="font-medium text-blue-500">Zoom Meeting</span>
+                        <span className="ml-1 text-xs text-gray-500">(Opens in a new window)</span>
+                      </div>
+                    )}
                   </div>
                 </div>
                 
