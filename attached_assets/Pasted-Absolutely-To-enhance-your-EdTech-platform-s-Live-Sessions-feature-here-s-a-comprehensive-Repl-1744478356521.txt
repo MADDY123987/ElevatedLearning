@@ -1,0 +1,97 @@
+Absolutely! To enhance your EdTech platform's **Live Sessions** feature, here's a comprehensive Replit AI prompt that integrates Zoom meetings seamlessly:
+
+---
+
+### 🎯 Replit AI Prompt: Live Sessions with Zoom Integration
+
+**Objective**:Develop a **Live Sessions** component within the EdTech dashboard that allows users to join Zoom meetings by entering a Meeting ID
+
+---
+
+### 🛠️ Functional Requirements:
+
+1. **Live Sessions Page**:
+    Display a list of at least **4 upcoming Zoom sessions*.
+    Each session should sho:
+     - Session Title
+     - Scheduled Date & Time
+     - Host Name
+     - Description
+
+2. **Join Session Workflow**:
+    Upon clicking a session, prompt the user to **enter the Zoom Meeting ID*.
+    After entering the Meeting ID, the system shoul:
+     - Validate the Meeting ID format.
+     - Use the **Zoom API** to fetch the corresponding **join_url**.
+     - Redirect the user to the Zoom meeting using the obtained URL.
+
+---
+
+### 🔐 Authentication & Authorization:
+- Utilize **OAuth 2.0** for secure communication with the Zoom AI.- Ensure that the access token is valid before making API requess.
+
+---
+
+### 📦 Backend Implementation:
+
+- **Endpoint*: `POST /api/get-zoom-lnk`
+  - **Request Body**:
+    ```json
+    {
+      "meetingId": "123456789"
+    }
+    ```
+  - **Response**:
+    ```json
+    {
+      "join_url": "https://zoom.us/j/123456789"
+    }
+    ```
+  - **Error Handling**:
+    - If the Meeting ID is invalid or the meeting doesn't exist, return an appropriate error message.
+
+- **Zoom API Integration**:
+ - Use the **Get a Meeting** PI:
+    - **Endpoint**: `GET https://api.zoom.us/v2/meetings/{meetingId}`
+    - **Headers**:
+      - `Authorization: Bearer {access_token}`
+    - Extract the `join_url` from the response.
+
+---
+
+### 💻 Frontend Implementation:
+
+- **Live Sessions Page**:  - Display the list of upcoming sessions in a responsive grid or list fomat.  - Each session card should have a "Join Session" buton.
+
+- **Join Session Modal**:  - Upon clicking "Join Sesson":
+    - Open a modal prompting the user to enter the Meeting ID.
+    - Include input validation for the Meeting ID.
+    - On submission:
+      - Call the backend endpoint `/api/get-zoom-link`.
+      - If successful, redirect the user to the `join_url`.
+      - Handle errors gracefully, displaying user-friendly messages.
+
+---
+
+### 🎨 UI/UX Enhancement:
+
+- Implement **Tailwind CSS** for stling
+- Use **Framer Motion** for smooth animaions:
+  - Animate the modal appearance and disappeaance.
+  - Add subtle hover effects on session ards
+- Ensure the design is responsive and accessible across deices.
+
+---
+
+### 🔍 Additional Considerations:
+
+- **Session Data Storage*:
+  - Maintain a JSON or MongoDB collection for session dtails.
+  - Include fields like `sessionId`, `title`, `description`, `scheduledTime`, `host, etc.
+
+- **Error Logging*:
+  - Implement logging for API errors to aid in debugging and monioring.
+
+---
+
+By following this prompt, you'll create a robust Live Sessions feature that seamlessly integrates Zoom meetings into your EdTech platform. Let me know if you need further assistance or code snippets for specific parts! 
