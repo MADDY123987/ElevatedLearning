@@ -13,6 +13,7 @@ import {
 } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import { registerZoomRoutes } from "./routes/zoom-routes";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Global error handler for Zod validation
@@ -551,6 +552,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log('Client disconnected from WebSocket');
     });
   });
+
+  // Register Zoom routes
+  registerZoomRoutes(app);
 
   return httpServer;
 }
