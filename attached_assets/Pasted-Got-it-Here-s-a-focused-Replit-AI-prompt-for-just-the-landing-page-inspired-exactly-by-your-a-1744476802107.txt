@@ -1,0 +1,94 @@
+Got it! Here's a **focused Replit AI prompt for just the landing page** — inspired exactly by your attached design. This prompt ensures the generated page is sleek, responsive, modern, and dark-themed, with a clean, professional layout like the one in your screenshot:
+
+---
+
+### 🧠 Replit AI Prompt: Responsive Landing Page for EdTech Platform (ElevateEd Style)
+
+Build a modern, fully responsive **landing page** for an EdTech platform called **ElevateEd**, inspired by platforms like Udemy and Coursera.
+
+---
+
+### 🎯 Objective:
+
+Create a **professional landing page** with a dark theme, beautiful typography, responsive grid layout, and engaging content sections — exactly like the provided reference image.
+
+---
+
+### 💻 Tech Stack:
+
+- React + TypeScript + TailwindCSS + Vite
+- Optional: Framer Motion for animations
+- Font: Inter or Poppins
+- Icons: lucide-react
+
+---
+
+### 🌐 Sections to Include (Exactly like the Screenshot):
+
+1. **Top Navigation Bar:**
+   - Logo: *ElevateEd*
+   - Links: Features, Courses, Instructors, Testimonials
+   - Buttons: “Log In” and “Sign Up” (right-aligned)
+   - Sticky and responsive
+
+2. **Hero Section:**
+   - Bold title: “Elevate Your Learning Experience”
+   - Subtitle: “Anytime, Anywhere”
+   - Short description about access to high-quality courses, community, etc.
+   - Buttons: “Start Learning” (primary), “Sign Up Free” (secondary)
+   - Support badges: Students, Educators, Courses, Instructors
+
+3. **Why Choose ElevateEd (Features Grid):**
+   - 8 grid items, each with:
+     - Icon
+     - Title (e.g., "Real-time Zoom Classes")
+     - Short description
+   - Layout: 4 cards per row (desktop), responsive to 2 or 1 (tablet/mobile)
+   - Hover effect + subtle animation
+
+4. **Popular Courses Section:**
+   - Heading: “Popular Courses”
+   - Grid of 6 course cards (title, instructor, tag, XP level, button)
+   - Category badges (e.g., Beginner, Intermediate, Advanced)
+   - “Explore All Courses” CTA
+
+5. **Expert Instructors Carousel:**
+   - Heading: “Meet Our Expert Instructors”
+   - Slider with instructor avatars, names, specialties, and social icons
+
+6. **Student Testimonials:**
+   - Heading: “What Our Students Say”
+   - Review card with avatar, quote, student name, course taken, star rating
+   - Carousel/slider format
+
+7. **Final CTA Section:**
+   - Title: “Ready to Start Your Learning Journey?”
+   - Buttons: “Sign Up Now”, “Log In”
+   - Background gradient
+
+8. **Footer:**
+   - Sections: Course links, Company info, Support
+   - Social icons (LinkedIn, Twitter, etc.)
+   - Copyright
+
+---
+
+### 🖼️ UI Requirements:
+
+- **Dark Mode by Default**, toggle optional
+- **Fully Responsive**: Works on all devices
+- **Professional Fonts & Spacing**
+- Clean hover/focus states
+- Modern layout and smooth animations
+
+---
+
+### ✅ Deliverable:
+
+- A single, production-ready React + TypeScript + TailwindCSS landing page in a `/client` folder
+- Mobile-first design with complete responsiveness
+- Clean code with modular components
+
+---
+
+Let me know if you’d like this converted into a Replit-ready starter or GitHub repo!

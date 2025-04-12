@@ -10,7 +10,7 @@ import {
   CardTitle
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Tab, Tabs, TabList, TabPanel } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { RefreshCw, Download, Award } from "lucide-react";
 import { format } from "date-fns";
 
@@ -67,16 +67,16 @@ const Certifications = () => {
         defaultValue="earned" 
         className="mb-8"
       >
-        <TabList className="mb-6">
-          <Tab value="earned">
+        <TabsList className="mb-6">
+          <TabsTrigger value="earned">
             Earned Certificates ({certifications?.length || 0})
-          </Tab>
-          <Tab value="eligible">
+          </TabsTrigger>
+          <TabsTrigger value="eligible">
             Eligible Courses ({eligibleCourses?.length || 0})
-          </Tab>
-        </TabList>
+          </TabsTrigger>
+        </TabsList>
         
-        <TabPanel value="earned">
+        <TabsContent value="earned">
           {isLoading ? (
             <div className="flex items-center justify-center py-12">
               <RefreshCw className="h-8 w-8 animate-spin text-indigo-600" />
@@ -133,9 +133,9 @@ const Certifications = () => {
               ))}
             </div>
           )}
-        </TabPanel>
+        </TabsContent>
         
-        <TabPanel value="eligible">
+        <TabsContent value="eligible">
           {!eligibleCourses || eligibleCourses.length === 0 ? (
             <Card>
               <CardContent className="p-8 text-center">
@@ -178,7 +178,7 @@ const Certifications = () => {
               ))}
             </div>
           )}
-        </TabPanel>
+        </TabsContent>
       </Tabs>
     </div>
   );
