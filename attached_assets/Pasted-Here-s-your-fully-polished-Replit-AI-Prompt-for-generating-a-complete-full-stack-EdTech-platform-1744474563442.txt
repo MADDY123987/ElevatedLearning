@@ -1,0 +1,197 @@
+Here’s your fully polished **Replit AI Prompt** for generating a complete full-stack EdTech platform with all the advanced UI/UX, gamified features, compiler, and Zoom live sessions:
+
+---
+
+🧠 **Replit AI Prompt: Build a Full-Stack EdTech Platform with Compiler, Quizzes & Zoom Integration**
+
+Create a full-featured EdTech platform inspired by **Udemy**, **Coursera**, and **Microsoft Teams**, including professional UI/UX, real-time chat, gamified progress tracking, code compiler integration, and Zoom-based live sessions.
+
+---
+
+## 📁 **Tech Stack**
+
+- **Frontend**: React + TypeScript + TailwindCSS + Vite  
+- **Backend**: Node.js + Express.js + TypeScript  
+- **Database**: JSON-based DB or MongoDB (if needed)  
+- **Real-time**: Socket.IO  
+- **Compiler**: Use a dummy backend endpoint to simulate a compiler output (bonus if integrating real APIs like Judge0)  
+- **Live Sessions**: Zoom API (via JWT/OAuth)  
+- **Animations**: Framer-motion (optional but encouraged)
+
+---
+
+## 🔐 **Authentication**
+
+- Only allow 2 hardcoded users:  
+  - Username: `Madhavan`, Password: `Test@1234`  
+  - Username: `Elevated`, Password: `Teach@1234`  
+- No signup route.  
+- Frontend uses Context API for auth state.  
+- Backend endpoint `/api/login` validates credentials.
+
+---
+
+## 🏠 **Landing Page (Static)**
+
+- Hero section with CTA: “Explore Courses” & “Login”
+- Fully responsive with TailwindCSS
+- Toggleable Light/Dark mode  
+- Include About, Features, Testimonials sections
+
+---
+
+## 🔑 **After Login: Main Dashboard Layout**
+
+- Sidebar Navigation (protected routes):  
+  - Home  
+  - Explore Courses  
+  - My Courses  
+  - Quizzes  
+  - Certifications  
+  - Live Sessions  
+  - Code Compiler  
+  - Profile  
+  - Global Chat  
+  - Logout
+
+- Topbar showing username and theme toggle  
+- Smooth page transitions (Framer-motion encouraged)  
+- Mobile-friendly with collapsible sidebar
+
+---
+
+## 🎯 **Explore Courses**
+
+- Fetch list from `/api/courses`  
+- Each course: title, description, thumbnail, Enroll button  
+- On enroll: send POST to `/api/enroll`, show under “My Courses”  
+- Add:  
+  - XP system (+10 XP per lesson)  
+  - Animated progress bar  
+  - Badges for milestones  
+
+---
+
+## 📚 **My Courses**
+
+- List only enrolled courses  
+- Click course → View lessons + track progress  
+- Gamified: XP bar, level-up animation, badge display  
+
+---
+
+## 🧠 **Quizzes Module**
+
+- At least 8 quizzes, 20 MCQs each  
+- Use `/api/quizzes` to fetch questions  
+- Show one question at a time, styled like Microsoft Forms  
+- Randomize order each time  
+- On submit:
+  - Show score, correct answers  
+  - Save result via `/api/submit-quiz`
+
+---
+
+## 💻 **Built-in Code Compiler (After Quiz Completion)**
+
+- After a quiz is completed, show a coding question section  
+- Simple code editor using a textarea or Monaco Editor  
+- Compile button calls `/api/compile` (simulate or integrate Judge0 API)  
+- Display output/result  
+- Encourage user to “Try Again” or move to next challenge  
+
+---
+
+## 📹 **Live Sessions via Zoom + Socket.IO**
+
+- User clicks “Join Live Session”  
+- Socket emits meeting ID to backend  
+- Server uses Zoom API (JWT/OAuth) to fetch join URL  
+- Emits back to client → Redirects to Zoom meeting  
+- Page has dummy meeting info, buttons (Join, Leave, Mute, Chat)
+
+---
+
+## 💬 **Global Chat (Real-time)**
+
+- Socket.IO based chat  
+- Available across all dashboard pages  
+- Sticky widget on bottom-right  
+- Show real-time message bubbles between Madhavan & Elevated  
+- Slide-in/out animation, new message highlights
+
+---
+
+## 🎓 **Certifications**
+
+- On completing courses + quizzes, unlock certificates  
+- `/api/certifications` returns dummy list  
+- Include download link (PDF or dummy)  
+- Visually styled certificate cards
+
+---
+
+## 🧑‍💼 **Profile Page**
+
+- Username, email (static), XP earned, courses enrolled  
+- Badges earned  
+- Editable profile picture (dummy upload)
+
+---
+
+## ⚠️ **Error Handling & States**
+
+- Friendly 404 page  
+- Show toasts on failed API calls  
+- Loader animations while fetching  
+- Input validation for login, quizzes, etc.
+
+---
+
+## 🎨 **UI/UX & Styling Expectations**
+
+- Use only **TailwindCSS** for styling  
+- Toggleable **Light/Dark theme** (accessible contrast)  
+- Professional, modern EdTech aesthetic  
+- Animations:
+  - Subtle hover & scale for buttons  
+  - Progress +10 XP popup  
+  - Smooth page transitions with Framer Motion  
+- Use `lucide-react` icons  
+- Font: `Poppins` / `Inter` / `Roboto`  
+- Full mobile/tablet/desktop responsiveness  
+- Sidebar collapses on mobile  
+- Video sessions scale on mobile  
+- WCAG AA accessible contrast
+
+---
+
+## 🧪 **Testing Checklist**
+
+✅ Hardcoded login works  
+✅ Protected routes only for logged-in users  
+✅ Courses & enrollment fully working  
+✅ Quiz submission & result tracking  
+✅ Certificate shown on course + quiz completion  
+✅ Live Zoom integration via Socket.IO  
+✅ Global real-time chat functional  
+✅ Compiler shows output  
+✅ Fully styled, responsive, dark/light mode  
+✅ All UI/UX polish & animations included
+
+---
+
+## 📦 **Deliverables**
+
+```
+/client       → React + TS + Tailwind app
+/server       → Node.js + Express + TypeScript + Socket.IO
+/db.json      → Users, Courses, Quizzes, Certifications, Messages
+README.md     → Setup, Usage, API list, Features
+```
+
+---
+
+✅ Replit AI — **Generate a full modular EdTech platform based on the above. All code must be production-ready, responsive, accessible, and fully tested. Use only necessary dependencies.**
+
+Let me know if you want a starter repo scaffold or GitHub integration setup instructions too!

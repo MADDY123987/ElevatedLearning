@@ -1,0 +1,206 @@
+Absolutely! Here's a **polished, comprehensive Replit AI prompt** tailored specifically for **UI/UX design** of your advanced EdTech app. It combines the best of **Udemy, Coursera, and Microsoft Teams**—with top-tier design principles, professional responsiveness, animation, and dark/light mode. I've also added additional UX features inspired by premium platforms.
+
+---
+
+### 🧑‍🎨 **Replit AI Prompt: Advanced UI/UX Design for EdTech App (Udemy/Coursera + MS Teams Inspired)**
+
+---
+
+You are tasked with designing a **modern, highly polished UI/UX** for a full-featured EdTech platform using:
+
+- **Styling Framework**: TailwindCSS (only)
+- **Animations**: Framer Motion (encouraged but optional)
+- **Icons**: lucide-react
+- **Fonts**: Clean Sans-serif like Inter, Poppins, or Roboto
+- **Design Quality**: Professional, elegant, minimal, and responsive (mobile-first)
+
+---
+
+### 🎯 GENERAL DESIGN GOALS:
+
+- Pixel-perfect responsive layout (Mobile, Tablet, Desktop)
+- WCAG AA accessibility wherever possible (color contrast, focus rings, etc.)
+- Soft shadows, 2xl rounded corners, consistent padding/margin system
+- Subtle but meaningful animations (hover, entrance, page transitions)
+- Clean hierarchy of content using text sizes and spacing
+- Light/Dark mode with complete visual consistency
+- Focus on learner motivation, clarity, and minimal cognitive load
+
+---
+
+### 🔥 DESIGN PAGES & COMPONENTS:
+
+#### 1. **Landing Page (Public)**
+- Beautiful hero section (image + bold CTA)
+- Sections:
+  - About (brief mission)
+  - Features (3–4 core highlights)
+  - Testimonials (card slider)
+  - Call to Action (sticky or floating button)
+- Animations:
+  - Framer motion fade-ins, slide-ups
+  - Scroll-based reveal effects
+- Sticky navbar w/ smooth scroll
+
+---
+
+#### 2. **Login Page**
+- Centered form inside a soft glassy or card UI
+- Fields with subtle borders + focus states
+- Clean buttons with hover scale + glow
+- “Remember me” + “Forgot password” (dummy)
+- Mobile-optimized with stacked layout
+
+---
+
+#### 3. **Dashboard Layout (Post-login)**
+- Sidebar navigation:
+  - Home, Explore, My Courses, Live Sessions, Quizzes, Certifications, Profile, Logout
+- Responsive:
+  - Collapsible sidebar on mobile (hamburger menu)
+- Top bar:
+  - Username + avatar
+  - Dark/light toggle
+  - Notification bell icon
+
+---
+
+#### 4. **Dark Mode / Light Mode**
+- **Light Mode**:
+  - White/gray backgrounds
+  - Indigo, emerald, or blue accents
+- **Dark Mode**:
+  - Charcoal or navy backgrounds
+  - Cyan, violet, or fuchsia accents
+- Transition:
+  - Smooth color fade on toggle
+  - UI maintains consistent spacing/colors
+
+---
+
+#### 5. **Explore Courses Page**
+- Grid layout (2–4 columns based on screen)
+- Course cards:
+  - Image, title, instructor, rating stars, “Enroll” button
+  - Hover effects (scale, shadow pop)
+  - Tags (e.g., “Best Seller”, “New”)
+- Filters and sorting dropdowns (by level, category)
+
+---
+
+#### 6. **My Courses Page**
+- List view with course progress:
+  - Progress bar (animated)
+  - XP earned, next lesson preview
+  - “Continue Learning” CTA
+- Badge system:
+  - Visual gamification (e.g., streaks, milestones)
+- Weekly learning goals tracker (calendar-style UI)
+
+---
+
+#### 7. **Course Detail Page**
+- Dynamic course view:
+  - Course video player (dummy)
+  - Tabbed interface:
+    - Overview
+    - Curriculum
+    - Q&A
+    - Reviews
+  - Sidebar:
+    - Instructor info
+    - Course ratings
+    - “Start Course” / “Resume” button
+- Animated chapter checkmarks
+
+---
+
+#### 8. **Quizzes Page**
+- Card layout of available quizzes
+- On quiz start:
+  - Centered layout with Microsoft Forms-style MCQs
+  - Polished radio buttons, hover states
+- Score summary:
+  - Progress circle, XP earned
+  - Retry button with bounce/scale effect
+
+---
+
+#### 9. **Live Sessions (Zoom-based)**
+- Video call UI inspired by Microsoft Teams:
+  - User tile, instructor tile, floating room info
+  - Buttons: Mute Audio, Mute Video, Leave Room (bottom center)
+- Embedded real-time chat with animated messages
+- Session schedule list (calendar + card views)
+
+---
+
+#### 10. **Global Chatbox**
+- Sticky button in dashboard corner
+- Click to slide in/out animated chatbox
+- Responsive:
+  - Overlay on mobile
+  - Docked panel on desktop
+- Message bubbles:
+  - Animated on send/receive
+  - Color-coded for sender/receiver
+
+---
+
+#### 11. **Profile Page**
+- Avatar, username, dummy email
+- XP tracker + badge showcase
+- Editable avatar upload
+- Light stat cards: Courses completed, XP, quizzes passed
+- Animated bar charts or radar chart for skills (optional)
+
+---
+
+#### 12. **Error + Loader States**
+- Friendly 404 page with fun illustration
+- Full-screen loader with animated spinner or shimmer
+- Toasts:
+  - On API failure, quiz submit, enroll error
+  - Styled with icon, message, dismissable
+
+---
+
+### 🧠 EXTRA FEATURES INSPIRED BY TOP EDTECH PLATFORMS:
+
+- ✅ Sticky “Continue Learning” bar at bottom
+- ✅ “Recommended for You” section (carousel slider)
+- ✅ “Learning Path” tracker UI with milestone checkpoints
+- ✅ “Course rating/review” modal styled like Udemy
+- ✅ Modal system (tailwind + animation) for confirm actions
+- ✅ Tab/Accordion UI components (Tailwind only)
+- ✅ Avatar + online presence indicators (Teams-style)
+
+---
+
+### 🎯 UX/UI Best Practices (Mandatory)
+
+- Mobile-first breakpoints (`sm`, `md`, `lg`, `xl`)
+- Button consistency: Rounded, bold text, color-animated on hover
+- Smooth scroll, transitions on route change
+- Card shadow/lift on hover
+- Iconography consistent across all views
+- Use Tailwind typography plugin (optional) for better text rendering
+
+---
+
+### ✅ Deliverables for Replit AI:
+
+- Full **frontend design-only** code (no backend logic)
+- TailwindCSS for all layouts, components, themes
+- Dark/Light mode working seamlessly
+- Responsive, professional design
+- Minimal external dependencies (only Framer Motion + lucide-react allowed)
+- Fully organized folder structure
+  - `components/`, `pages/`, `layouts/`, `hooks/`, `theme/`
+- All visuals styled with user experience and accessibility in mind
+
+---
+
+💡 **Start building a professional, production-ready, beautiful EdTech UI that feels like a blend of Udemy, Coursera, and Microsoft Teams — built entirely with TailwindCSS.**
+
+Let me know if you want this turned into an actual UI starter repo — I can scaffold it out for you!
